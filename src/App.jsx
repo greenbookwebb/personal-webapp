@@ -293,6 +293,20 @@ function Hero() {
         <span>·</span>
         <span>Open to opportunities</span>
       </div>
+
+      <a className="hero__cta" href="/Lachlan-Webb-CV.pdf" download>
+        Download CV
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M8 2v9m0 0 3.5-3.5M8 11 4.5 7.5M2.5 13.5h11"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
     </section>
   )
 }
