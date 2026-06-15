@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import './App.css'
 
 const NAV = ['Experience', 'Work', 'Skills', 'Contact']
@@ -460,6 +461,7 @@ function App() {
         <Education />
         <Contact />
       </main>
+      <Analytics />
     </>
   )
 }
