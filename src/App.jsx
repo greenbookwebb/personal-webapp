@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import './App.css'
 
 const NAV = ['Experience', 'Work', 'Skills', 'Contact']
@@ -46,17 +47,30 @@ const PILLS = [
 const EXPERIENCE = [
   {
     variant: 'orange',
-    title: 'Technical Product Manager',
-    company: 'Open Campus / EDUChain',
+    title: 'Product Lead / Technical Product Manager',
+    company: 'Open Campus (Animoca Brands)',
     dates: 'Jul 2024 – Present',
     location: 'Remote / Australia',
     tag: 'Current',
     bullets: [
-      'Lead product across OC Hub, EDUChain tooling, credential experiences, and partner mini-apps',
-      'Define PRDs, user flows, API specs, technical requirements, and launch plans',
-      'Shape India digital credentials initiative including OCID, Aadhaar KYC, and verifiable credentials',
-      'Drive infrastructure migration planning across RaaS vendors, RPCs, subgraphs, and bridge UX',
-      'Own rewards/incentive specs including points systems, Merkle claims, and campaign mechanics',
+      'Own a portfolio of student-, partner-, and infrastructure products: credentials, identity, engagement, incentives, and admin tooling',
+      'Led government-scale digital credentials in India — tokenising 10M credentials, plus OCID, Aadhaar KYC, and verifiable credentials',
+      'Define PRDs, user flows, API assumptions, technical requirements, engineering sprint planning, and launch plans',
+      'Hands-on technical PM: build internal tooling and prototypes in Python, APIs, and blockchain data to unblock product decisions',
+      'Product owner for blockchain infrastructure ops — vendors, RPC/indexing, bridge & wallet UX, multisig, and migration planning',
+    ],
+  },
+  {
+    variant: 'blue',
+    title: 'Head of Product & Partnerships',
+    company: 'AgentFi',
+    dates: 'Jan 2023 – Jul 2024',
+    location: 'Remote / Australia',
+    tag: 'AI / Web3',
+    bullets: [
+      'Led product strategy, technical specs, user acquisition, and protocol partnerships for an AI/Web3 DeFi product',
+      'Coordinated product, engineering, marketing, and partner workflows across development, launch, and growth campaigns',
+      'Helped run an oversubscribed NFT mint raising ~US$200k and supported growth to more than US$2M in TVL at launch',
     ],
   },
   {
@@ -191,11 +205,11 @@ const SKILLS = [
     title: 'LANGUAGES & FRAMEWORKS',
     items: [
       'Python / FastAPI',
+      'JavaScript / TypeScript',
       'React / Next.js',
       'REST & GraphQL APIs',
       'Solidity / Smart Contracts',
       'SQL / PostgreSQL',
-      'R (statistical modelling)',
     ],
   },
   {
@@ -303,8 +317,8 @@ function Hero() {
         A technical product manager who&apos;s as comfortable in a PRD as in a
         terminal. I care about getting the details right — protocol mechanics,
         API specs, credential rails — and I apply that to everything I ship,
-        from DeFi derivatives at Tracer to credential systems at Open Campus /
-        EDUChain.
+        from DeFi derivatives at Tracer, to an AI/Web3 product at AgentFi, to
+        credential systems at Open Campus.
       </p>
 
       <span className="hero__accent" />
@@ -314,6 +328,20 @@ function Hero() {
         <span>·</span>
         <span>Open to opportunities</span>
       </div>
+
+      <a className="hero__cta" href="/Lachlan-Webb-CV.pdf" download>
+        Download CV
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M8 2v9m0 0 3.5-3.5M8 11 4.5 7.5M2.5 13.5h11"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
     </section>
   )
 }
@@ -516,6 +544,7 @@ function App() {
         <Education />
         <Contact />
       </main>
+      <Analytics />
     </>
   )
 }
