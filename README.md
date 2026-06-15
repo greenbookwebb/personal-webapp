@@ -19,9 +19,6 @@ npm run lint     # eslint
   (`NAV`, `PILLS`, `EXPERIENCE`, `WORK`, `SKILLS`, …) — edit those to update copy.
 - `src/index.css` — design tokens (colours, fonts) as CSS custom properties.
 - `src/App.css` — all section styles + responsive breakpoints.
-- `public/work/` — drop project screenshots here to power the Selected Work
-  hover preview (see that folder's README). Missing images fall back to a
-  styled placeholder automatically.
 
 ## Deploy
 

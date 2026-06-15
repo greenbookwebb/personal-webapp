@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import './App.css'
 
 const NAV = ['Experience', 'Work', 'Skills', 'Contact']
@@ -261,14 +260,16 @@ function Hero() {
       <span className="hero__accent" />
 
       <h1 className="hero__headline">
-        Technical Product Manager building DeFi protocols, Web3 infrastructure,
-        and digital credential systems.
+        Hi, I&apos;m Lachlan — I build products where finance, Web3, and
+        infrastructure meet.
       </h1>
 
       <p className="hero__subtitle">
-        Combining finance and mechanism-design background with hands-on
-        technical fluency. Previously co-designed DeFi derivatives at Tracer
-        DAO. Now leading product across Open Campus / EDUChain.
+        A technical product manager who&apos;s as comfortable in a PRD as in a
+        terminal. I care about getting the details right — protocol mechanics,
+        API specs, credential rails — and I apply that to everything I ship,
+        from DeFi derivatives at Tracer to credential systems at Open Campus /
+        EDUChain.
       </p>
 
       <span className="hero__accent" />
@@ -318,62 +319,15 @@ function Experience() {
   )
 }
 
-function WorkPreview({ card, pos }) {
-  const [failed, setFailed] = useState(false)
-
-  return (
-    <div
-      className="work-preview"
-      style={{ top: pos.y, left: pos.x }}
-      aria-hidden="true"
-    >
-      {failed ? (
-        <div className={`work-preview__ph work-preview__ph--${card.variant}`}>
-          <span className="work-preview__num">{card.num}</span>
-          <span className="work-preview__label">{card.type}</span>
-        </div>
-      ) : (
-        <img
-          className="work-preview__img"
-          src={`/work/${card.slug}.png`}
-          alt=""
-          onError={() => setFailed(true)}
-        />
-      )}
-    </div>
-  )
-}
-
 function Work() {
-  const [active, setActive] = useState(null)
-  const [pos, setPos] = useState({ x: 0, y: 0 })
-  const [canHover, setCanHover] = useState(false)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
-    const update = () => setCanHover(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
-
-  const handleMove = (e) => setPos({ x: e.clientX, y: e.clientY })
-
   return (
     <section className="section work" id="work">
       <SectionLabel>SELECTED WORK</SectionLabel>
-      <div
-        className="work__grid"
-        onMouseMove={canHover ? handleMove : undefined}
-      >
-        {WORK.map((card, i) => (
+      <div className="work__grid">
+        {WORK.map((card) => (
           <article
-            className={`work-card work-card--${card.variant} ${
-              canHover ? 'work-card--interactive' : ''
-            }`}
+            className={`work-card work-card--${card.variant}`}
             key={card.num}
-            onMouseEnter={() => canHover && setActive(i)}
-            onMouseLeave={() => canHover && setActive(null)}
           >
             <div className="work-card__top">
               <span className="work-card__type">{card.type}</span>
@@ -386,13 +340,9 @@ function Work() {
                 <Tag key={t.label} {...t} />
               ))}
             </div>
-            {canHover && <span className="work-card__hint">Hover to preview ↗</span>}
           </article>
         ))}
       </div>
-      {canHover && active !== null && (
-        <WorkPreview key={WORK[active].slug} card={WORK[active]} pos={pos} />
-      )}
     </section>
   )
 }
