@@ -1,6 +1,32 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const NAV = ['Experience', 'Work', 'Skills', 'Contact']
+const NAV_IDS = NAV.map((item) => item.toLowerCase())
+
+function useActiveSection(ids) {
+  const [active, setActive] = useState('')
+
+  useEffect(() => {
+    const els = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean)
+    if (!els.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id)
+        })
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    )
+    els.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [ids])
+
+  return active
+}
 
 const PILLS = [
   [
@@ -226,6 +252,8 @@ function SectionLabel({ children, variant = 'orange' }) {
 }
 
 function Header() {
+  const active = useActiveSection(NAV_IDS)
+
   return (
     <header className="nav">
       <div className="nav__inner">
@@ -233,11 +261,18 @@ function Header() {
           Lachlan Webb
         </a>
         <nav className="nav__links">
-          {NAV.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`}>
-              {item}
-            </a>
-          ))}
+          {NAV.map((item) => {
+            const id = item.toLowerCase()
+            return (
+              <a
+                key={item}
+                href={`#${id}`}
+                className={active === id ? 'is-active' : ''}
+              >
+                {item}
+              </a>
+            )
+          })}
         </nav>
       </div>
     </header>
@@ -449,6 +484,27 @@ function Contact() {
 }
 
 function App() {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const els = document.querySelectorAll('.hero, .section')
+    els.forEach((el) => el.classList.add('reveal'))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.05 }
+    )
+    els.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <>
       <Header />

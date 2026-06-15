@@ -100,4 +100,9 @@ button {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+  /* Never hide content for reduced-motion users */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
