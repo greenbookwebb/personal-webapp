@@ -164,6 +164,22 @@
   font-size: 12px;
   color: var(--text-tertiary);
 }
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: 24px;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.hero__cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
 
 /* ===========================================================
    Experience
