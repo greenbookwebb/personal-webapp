@@ -397,12 +397,24 @@
 /* ===========================================================
    Skills
    =========================================================== */
+.skills__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 .skills__intro {
   font-family: var(--font-heading);
   font-weight: 400;
   font-size: 36px;
   line-height: 1.25;
   color: var(--text-primary);
+  max-width: 700px;
+}
+.skills__subhead {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-secondary);
   max-width: 700px;
 }
 .skills__grid {

@@ -190,44 +190,49 @@ const WORK = [
 const SKILLS = [
   {
     variant: 'orange',
-    title: 'PRODUCT',
+    title: 'PRODUCT & STRATEGY',
     items: [
-      'Product Strategy & PRDs',
-      'User Journeys',
-      'Roadmap & Sprint Planning',
-      'Launch Readiness',
-      'Analytics',
-      'Stakeholder & Vendor Management',
+      'Product roadmapping & PRDs',
+      'User flows & requirements',
+      'Go-to-market & launch',
+      'Stakeholder & vendor management',
+      'Analytics & instrumentation',
+      'Agile / Scrum',
     ],
   },
   {
     variant: 'teal',
-    title: 'TECHNICAL',
+    title: 'WEB APP ENGINEERING',
     items: [
-      'TypeScript / JavaScript',
+      'TypeScript',
       'React / Next.js',
       'Tailwind CSS',
       'Node.js',
       'REST & GraphQL APIs',
-      'Python · light web3 (viem / wagmi)',
+      'Client-side web3 (viem / wagmi)',
     ],
   },
   {
     variant: 'blue',
-    title: 'TOOLS',
+    title: 'INFRASTRUCTURE & DATA',
     items: [
-      'GitHub',
-      'Cursor',
-      'Linear',
-      'Notion',
-      'Vercel / Cloudflare',
-      'Supabase',
+      'Vercel',
+      'Cloudflare',
+      'Supabase / Postgres',
+      'GitHub & CI/CD',
+      'Python (scripts & prototypes)',
+      'SQL / data analysis',
     ],
   },
   {
     variant: 'yellow',
-    title: 'DOMAIN',
-    items: ['DeFi', 'Digital Credentials', 'Identity', 'Web3'],
+    title: 'WEB3 & DOMAINS',
+    items: [
+      'DeFi & tokenomics',
+      'Digital credentials & identity (SSI)',
+      'EdTech & engagement',
+      'Web3 consumer products',
+    ],
   },
 ]
 
@@ -407,9 +412,15 @@ function Skills() {
   return (
     <section className="section skills" id="skills">
       <SectionLabel variant="teal">TECHNICAL TOOLKIT</SectionLabel>
-      <h2 className="skills__intro">
-        Tools, languages, and domains I work across daily.
-      </h2>
+      <div className="skills__heading">
+        <h2 className="skills__intro">
+          I lead product — and build the web apps too.
+        </h2>
+        <p className="skills__subhead">
+          The tools, languages, and domains I work across daily — from PRDs to
+          production React/Next.js.
+        </p>
+      </div>
       <div className="skills__grid">
         {SKILLS.map((col) => (
           <article
